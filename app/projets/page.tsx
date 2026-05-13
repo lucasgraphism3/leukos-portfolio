@@ -2,24 +2,23 @@
 
 import Footer from "@/components/footer";
 import ContactModal from "@/components/contactModal";
+import Link from "next/link";
 import { useState } from "react";
 
 const projets = [
-  { id: "vnoma", title: "VNOMA KOMBUCHA", type: "Identité visuelle — Design d'emballage", filter: ["identite", "packaging"] },
-  { id: "flstudio", title: "REFONTE FL STUDIO", type: "Identité visuelle — Design d'emballage", filter: ["identite", "packaging"] },
-  { id: "gojin", title: "GOJIN TEA", type: "Identité visuelle — Design d'emballage", filter: ["identite", "packaging"] },
-  { id: "survie", title: "SURVIE DANS LA SUPERNATURE", type: "Expérimentation IA — Narration", filter: ["numerique"] },
-  { id: "clubzine", title: "EXPO CLUB ZINE", type: "Design évènement", filter: ["print"] },
-  { id: "lesfadas", title: "LES FADAS", type: "Identité visuelle", filter: ["identite"] },
-  { id: "maison", title: "MAISON D'HERBE", type: "Identité visuelle — Design d'emballage", filter: ["identite", "packaging"] },
-  { id: "oosouji", title: "OOSOUJI", type: "Design print", filter: ["print"] },
+  { id: "flstudio", title: "REFONTE FL STUDIO", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "fl-studio", logo: "/projects/fl-studio/logo.webp" },
+  { id: "gojin", title: "GOJIN TEA", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "gojin-tea", logo: "/projects/gojin-tea/logo.webp" },
+  { id: "vnoma", title: "VNOMA", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "vnoma", logo: "/projects/vnoma/logo.webp" },
+  { id: "clubzine", title: "EXPO CLUB ZINE", type: "Design print", filter: ["print"], slug: "expo-club-zine", logo: "/projects/expo-club-zine/logo.webp" },
+  { id: "maisonherbe", title: "MAISON D'HERBE", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "maison-herbe", logo: "/projects/maison-herbe/logo.webp" },
+  { id: "lesfadas", title: "LES FADAS", type: "Identité visuelle", filter: ["identite"], slug: "les-fadas", logo: "/projects/les-fadas/logo.webp" },
+  { id: "seigneurie", title: "SEIGNEURIE\nNICOLAS-RIOUX", type: "Identité visuelle — Design print", filter: ["identite", "print"], slug: "seigneurie", logo: "/projects/seigneurie/logo.webp" },
 ];
 
 const filtres = [
   { id: "tous", label: "TOUS" },
   { id: "identite", label: "IDENTITÉ VISUELLE" },
   { id: "print", label: "DESIGN PRINT" },
-  { id: "numerique", label: "DESIGN NUMÉRIQUE" },
   { id: "packaging", label: "PACKAGING" },
 ];
 
@@ -54,17 +53,21 @@ export default function ProjetsPage() {
 
             <div className="projets__grid">
               {projetsFiltres.map((p) => (
-                <div key={p.id} className="projets__card">
+                <Link key={p.id} href={`/projets/${p.slug}`} className="projets__card">
                   <img
-                    src="/projects/work_progress.jpg"
+                    src={p.logo}
                     alt={p.title}
                     className="projets__cardImg"
                   />
                   <div className="projets__cardOverlay">
-                    <div className="projets__cardTitle">{p.title}</div>
+                    <div className="projets__cardTitle">
+                      {p.title.split('\n').map((line, i) => (
+                        <span key={i}>{line}{i === 0 && p.title.includes('\n') && <br />}</span>
+                      ))}
+                    </div>
                     <div className="projets__cardType">{p.type}</div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
