@@ -28,7 +28,11 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -1702,4 +1706,170 @@ button,
   .footer__bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
   .footer__sitemap { flex-wrap: wrap; gap: 16px; }
   .footer__bigText { font-size: clamp(36px, 10vw, 80px); white-space: normal; }
+}
+/* HAMBURGER - caché par défaut */
+.lk-hamburger { display: none; }
+.lk-mobileMenu { display: none; }
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 600px) {
+
+  /* HEADER */
+  .lk-navGroup { display: none; }
+
+  .lk-nav {
+    height: 70px;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+
+  .lk-navLogo img { height: 56px; }
+
+  .lk-header--solid { height: 70px; }
+
+  .lk-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .lk-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+  }
+
+  .lk-mobileMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 24px 16px;
+    gap: 20px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .lk-mobileLink {
+    font-family: "Eras Bold ITC", Impact, Arial Black, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .lk-mobileLink:hover { color: var(--orange); }
+
+  /* HERO */
+  .lk-hero {
+    height: 50vh !important;
+    min-height: 300px !important;
+  }
+
+  .lk-heroImg {
+    object-position: center 60% !important;
+  }
+
+  /* INTRO */
+.intro__grid {
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+  padding: 0 16px;
+}
+
+.intro__card { height: 420px; }
+.intro__grid .h1 { font-size: 36px; }
+
+.p { font-size: 15px; }
+  /* PROJETS MARQUEE */
+  .projectCard {
+    flex: 0 0 280px;
+    height: 200px;
+  }
+
+  /* SERVICES */
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .serviceCard { min-height: 140px; padding: 20px 10px; }
+
+  .serviceCard__icon { width: 80px; height: 80px; }
+
+  .serviceCard__title { font-size: 20px; }
+
+  .serviceCard__desc { font-size: 14px; }
+
+  /* TITRES */
+  .h2 { font-size: 40px; }
+
+  /* BOUTONS */
+  .btn--ghost {
+    height: 56px;
+    padding: 0 28px;
+    font-size: 18px;
+  }
+
+  /* PADDING SECTIONS */
+  .fullSection { padding: 48px 0; }
+
+  .fullSection__inner { padding: 0 16px; }
+}
+/* FOOTER */
+.footer__inner { padding: 36px 16px 0; }
+
+.footer__bottom {
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.footer__social {
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.footer__socialBtn {
+  width: 100%;
+  justify-content: center;
+}
+.footer__bigText {
+  font-size: 36px !important;
+  white-space: normal !important;
+  word-break: break-word;
+}
+.footer__sitemap {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.footer__sitemapLink {
+  font-size: 12px !important;
+  letter-spacing: 0.02em !important;
+}
+.footer__bigText {
+  font-size: clamp(36px, 10vw, 80px);
+  white-space: normal;
 }
