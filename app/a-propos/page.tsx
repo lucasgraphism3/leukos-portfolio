@@ -109,13 +109,7 @@ export default function AboutPage() {
 
                 <div className="about__bioCard">
                   <p className="about__bioText">
-                    Je suis Lucas Guiquéro, designer print et numérique, étudiant en 3e année de DEC Graphisme
-                    au Cégep de Rivière-du-Loup. Passionné par la typographie, l'identité visuelle et le design éditorial,
-                    je cherche à mettre mon énergie et mon sens des responsabilités au service de projets ambitieux.
-                  </p>
-                  <p className="about__bioText" style={{ marginBottom: 0 }}>
-                    Disponible à partir du mois d'août, je suis prêt à m'impliquer activement et à contribuer
-                    de manière efficace à votre équipe.
+                    Je suis Lucas Guiquéro allias Leukos, designer print et numérique, diplômé d'un baccalauréat en graphisme et d'un DEC au Cégep de Rivière-du-Loup. Passionné par le design numérique, l'identité visuelle et le design éditorial, je cherche à mettre mon énergie et mon sens des responsabilités au service de projets ambitieux. Disponible à partir du mois d'août, je suis prêt à m'impliquer activement et à contribuer de manière efficace à votre équipe.
                   </p>
                 </div>
 

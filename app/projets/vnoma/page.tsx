@@ -6,6 +6,8 @@ export default function VnomaPage() {
   return (
     <>
       <main className="projet__page">
+
+        {/* HERO */}
         <div className="projet__hero" style={{ backgroundImage: "url('/projects/vnoma/hero.jpg')" }}>
           <div className="projet__heroOverlay" />
           <div className="projet__heroContent">
@@ -17,26 +19,35 @@ export default function VnomaPage() {
             </div>
           </div>
         </div>
+
+        {/* INFOS + GALERIE */}
         <div className="projet__body">
-          <div className="projet__inner">
-            <div className="projet__desc">
-              <p className="projet__descText">Création d'une identité visuelle et de packaging pour une marque kombucha loin des clichés, à contre-courant des codes classiques du bien-être.</p>
-              <p className="projet__descText">Le projet développe un univers visuel plus brut et affirmé, en rupture avec les esthétiques douces et aseptisées du secteur. L'identité repose sur une direction artistique radicale, faire de la fermentation l'axe de communication principal en l'évoquant par les motifs et autres éléments graphiques.</p>
+          <div className="projet__container">
+
+            {/* SECTION INFOS */}
+            <div className="projet__infos">
+              <div className="projet__logo">
+                <img src="/projects/vnoma/logo.webp" alt="Vnoma logo" />
+              </div>
+              <div className="projet__desc">
+                <p className="projet__descText">Création d'une identité visuelle et de packaging pour une marque kombucha loin des clichés, à contre-courant des codes classiques du bien-être.</p>
+                <p className="projet__descText">Le projet développe un univers visuel plus brut et affirmé, en rupture avec les esthétiques douces et aseptisées du secteur. L'identité repose sur une direction artistique radicale, faire de la fermentation l'axe de communication principal en l'évoquant par les motifs et autres éléments graphiques.</p>
+              </div>
             </div>
-            <div className="projet__descImg">
-              <img src="/projects/vnoma/1.jpg" alt="Vnoma" />
+
+            {/* SECTION GALERIE */}
+            <div className="projet__gallery">
+              <img src="/projects/vnoma/1.jpg" alt="Vnoma" className="projet__galleryImgSquare" />
+              <img src="/projects/vnoma/2.jpg" alt="Vnoma" className="projet__galleryImgWide" />
+              <img src="/projects/vnoma/3.jpg" alt="Vnoma" className="projet__galleryImgSquare" />
+              <img src="/projects/vnoma/4.jpg" alt="Vnoma" className="projet__galleryImgWide" />
+              <img src="/projects/vnoma/5.jpg" alt="Vnoma" className="projet__galleryImgSquare" />
+              <img src="/projects/vnoma/6.jpg" alt="Vnoma" className="projet__galleryImgSquare" />
             </div>
+
           </div>
         </div>
-        <div className="projet__gallery">
-          <div className="projet__galleryRow1">
-            <img src="/projects/vnoma/2.jpg" alt="Vnoma" className="projet__galleryImgBig" />
-            <div className="projet__galleryCol">
-              <img src="/projects/vnoma/3.jpg" alt="Vnoma" className="projet__galleryImgSmall" />
-              <img src="/projects/vnoma/4.jpg" alt="Vnoma" className="projet__galleryImgSmall" />
-            </div>
-          </div>
-        </div>
+
         <ContactModal />
       </main>
       <Footer />

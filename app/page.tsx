@@ -68,7 +68,7 @@ export default function Home() {
 
             <div className="services__grid">
               <article className="serviceCard">
-                <img src="/icons/identite.svg" alt="Identité visuelle" className="serviceCard__icon" />
+                <img src="/icons/services/identite-visuelle.png" alt="Identité visuelle" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Identité visuelle</div>
                   <div className="serviceCard__desc">Logos, chartes graphiques, territoires de marque.</div>
@@ -76,7 +76,7 @@ export default function Home() {
               </article>
 
               <article className="serviceCard">
-                <img src="/icons/print.svg" alt="Design print" className="serviceCard__icon" />
+                <img src="/icons/services/print.png" alt="Design print" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Design print</div>
                   <div className="serviceCard__desc">Édition, affiches, mise en page.</div>
@@ -84,7 +84,7 @@ export default function Home() {
               </article>
 
               <article className="serviceCard">
-                <img src="/icons/web.svg" alt="Design numérique" className="serviceCard__icon" />
+                <img src="/icons/services/web.png" alt="Design numérique" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Design numérique</div>
                   <div className="serviceCard__desc">UI, web, assets digitaux.</div>
@@ -92,7 +92,7 @@ export default function Home() {
               </article>
 
               <article className="serviceCard">
-                <img src="/icons/photo.svg" alt="Photo" className="serviceCard__icon" />
+                <img src="/icons/services/photo.png" alt="Photo" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Photo</div>
                   <div className="serviceCard__desc">Séries, retouches, direction.</div>
@@ -100,7 +100,7 @@ export default function Home() {
               </article>
 
               <article className="serviceCard">
-                <img src="/icons/motion.svg" alt="Motion design" className="serviceCard__icon" />
+                <img src="/icons/services/motion.png" alt="Motion design" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Motion design</div>
                   <div className="serviceCard__desc">Animation, vidéo, after effects.</div>
@@ -108,7 +108,7 @@ export default function Home() {
               </article>
 
               <article className="serviceCard">
-                <img src="/icons/packaging.svg" alt="Packaging" className="serviceCard__icon" />
+                <img src="/icons/services/emballage.png" alt="Packaging" className="serviceCard__icon" />
                 <div className="serviceCard__info">
                   <div className="serviceCard__title">Packaging</div>
                   <div className="serviceCard__desc">Emballages, étiquettes, boîtes.</div>
