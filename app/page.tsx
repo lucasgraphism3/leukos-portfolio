@@ -41,9 +41,11 @@ export default function Home() {
                 design print, le packaging ainsi que le design web.
               </p>
 
-              <Link className="btn btn--ghost" href="/a-propos">
-                En savoir plus
-              </Link>
+              <div className="section__cta">
+                <Link className="btn btn--ghost" href="/a-propos">
+                  En savoir plus
+                </Link>
+              </div>
             </div>
           </div>
         </section>

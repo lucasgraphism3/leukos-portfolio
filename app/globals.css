@@ -1088,7 +1088,7 @@ button,
 
 .contact__title {
   font-family: "Eras Bold ITC", Impact, Arial Black, sans-serif;
-  font-size: clamp(48px, 6vw, 80px);
+  font-size: clamp(22px, 6vw, 80px);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -1707,13 +1707,15 @@ button,
   .footer__sitemap { flex-wrap: wrap; gap: 16px; }
   .footer__bigText { font-size: clamp(36px, 10vw, 80px); white-space: normal; }
 }
-/* HAMBURGER - caché par défaut */
-.lk-hamburger { display: none; }
-.lk-mobileMenu { display: none; }
 
 /* =========================
    RESPONSIVE MOBILE
 ========================= */
+
+/* HAMBURGER - caché par défaut */
+.lk-hamburger { display: none; }
+.lk-mobileMenu { display: none; }
+
 @media (max-width: 600px) {
 
   /* HEADER */
@@ -1787,23 +1789,51 @@ button,
   }
 
   /* INTRO */
-.intro__grid {
-  grid-template-columns: 1fr;
-  row-gap: 16px;
-  padding: 0 16px;
-}
+  .intro__grid {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    padding: 0 16px;
+  }
 
-.intro__card { height: 420px; }
-.intro__grid .h1 { font-size: 36px; }
+  .intro__card { height: 280px !important; }
 
-.p { font-size: 15px; }
+  .intro__grid .h1 {
+    font-size: 36px !important;
+    text-align: center !important;
+  }
+
+  .intro__grid .p {
+    text-align: center !important;
+  }
+
+  .p { font-size: 15px; }
+
+  .section__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px !important;
+  }
+
+  .intro__grid .btn {
+    width: auto !important;
+    display: inline-flex !important;
+    margin: 0 !important;
+  }
+
+  .intro__grid .section__cta {
+    margin-top: 32px !important;
+  }
+
   /* PROJETS MARQUEE */
   .projectCard {
     flex: 0 0 280px;
     height: 200px;
   }
 
-  /* SERVICES */
+  /* PROJETS PAGE */
+  .projets__section { padding: 40px 0; }
+
+  /* SERVICES ACCUEIL */
   .services__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -1817,6 +1847,90 @@ button,
 
   .serviceCard__desc { font-size: 14px; }
 
+  /* SERVICES PAGE */
+  .services__heroText { font-size: 14px; }
+
+  .services__row {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+    padding: 0 8px;
+  }
+
+  .services__colDivider { display: none; }
+
+  .services__hero { margin-bottom: 32px; }
+
+  .services__divider { margin: 32px 0; }
+
+  .services__item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .services__itemHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services__itemTitle { font-size: 20px !important; }
+
+  .services__itemDesc { font-size: 13px !important; }
+
+  .services__itemTags {
+    font-size: 12px !important;
+    text-align: center;
+  }
+
+  .services__itemIcon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .services__process {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+
+  .services__step {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .services__processHero { text-align: center; }
+
+  .services__stepLine { display: none; }
+
+  .services__stepTitle { font-size: 13px !important; }
+
+  .services__stepDesc { font-size: 11px !important; }
+
+  .services__stepNum {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 14px !important;
+  }
+
+  /* CONTACT PAGE */
+  .contact__layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding-top: 16px !important;
+  }
+
+  .contact__intro { font-size: 13px !important; }
+
+  .contact__sub { font-size: 12px !important; }
+
+  .contact__socialBtn {
+    font-size: 11px !important;
+    padding: 8px 16px !important;
+  }
+
+  .contact__row {
+    grid-template-columns: 1fr !important;
+  }
+
   /* TITRES */
   .h2 { font-size: 40px; }
 
@@ -1827,49 +1941,104 @@ button,
     font-size: 18px;
   }
 
+  /* CONTACT MODAL */
+  .contactCta__btn {
+    font-size: 18px !important;
+    padding: 24px 12px !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
   /* PADDING SECTIONS */
   .fullSection { padding: 48px 0; }
 
   .fullSection__inner { padding: 0 16px; }
-}
-/* FOOTER */
-.footer__inner { padding: 36px 16px 0; }
 
-.footer__bottom {
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  text-align: center;
-}
+  /* À PROPOS */
+  .about__grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
 
-.footer__social {
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-}
+  .about__center { order: 1; }
+  .about__left { order: 2; }
+  .about__right {
+    order: 3;
+    grid-column: 1 !important;
+  }
 
-.footer__socialBtn {
-  width: 100%;
-  justify-content: center;
-}
-.footer__bigText {
-  font-size: 36px !important;
-  white-space: normal !important;
-  word-break: break-word;
-}
-.footer__sitemap {
-  display: flex;
-  flex-direction: row !important;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-.footer__sitemapLink {
-  font-size: 12px !important;
-  letter-spacing: 0.02em !important;
-}
-.footer__bigText {
-  font-size: clamp(36px, 10vw, 80px);
-  white-space: normal;
+  .about__colTitle--right {
+    text-align: left !important;
+  }
+
+  .about__competencesGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about__competenceCard {
+    height: 100%;
+    min-height: 80px;
+  }
+
+  .about__competenceCardInner {
+    gap: 8px;
+  }
+
+  .about__competenceIcon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .about__competenceName {
+    font-size: 12px !important;
+  }
+
+  .about__competenceDesc {
+    font-size: 10px !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px !important;
+  }
+
+  .footer__inner { padding: 36px 16px 0; }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .footer__social {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .footer__socialBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer__bigText {
+    font-size: 30px !important;
+    white-space: nowrap !important;
+  }
+
+  .footer__sitemap {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .footer__sitemapLink {
+    font-size: 12px !important;
+    letter-spacing: 0.02em !important;
+  }
 }
