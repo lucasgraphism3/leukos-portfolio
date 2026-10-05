@@ -5,6 +5,8 @@ import ContactModal from "@/components/contactModal";
 import Image from "next/image";
 import Link from "next/link";
 
+const PORTFOLIO_PDF = "/portfolio/portfolio_lucas_guiquero_2026.pdf";
+
 export default function Home() {
   return (
     <>
@@ -14,12 +16,7 @@ export default function Home() {
         {/* Présentation */}
         <section className="fullSection">
           <div className="fullSection__inner intro__grid">
-            <Link
-              className="intro__card"
-              href="/assets/portfolio.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a className="intro__card" href={PORTFOLIO_PDF} download>
               <Image
                 src="/photo_profil2.png"
                 alt="Photo de profil"
@@ -30,12 +27,12 @@ export default function Home() {
               />
               <div className="intro__overlay" aria-hidden="true" />
               <div className="intro__pdfTag">PORTFOLIO PDF</div>
-            </Link>
+            </a>
 
             <div>
               <h1 className="h1">HELLO !</h1>
               <p className="p erasLight">
-                Je suis Leukos, designer graphique freelance pluridisciplinaire.
+                Je suis Leukos, designer graphique pluridisciplinaire.
                 Je possède plus de six années d'expérience en graphisme et j'ai
                 principalement orienté mon travail vers l'identité visuelle, le
                 design print, le packaging ainsi que le design web.

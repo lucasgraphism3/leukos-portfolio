@@ -28,20 +28,24 @@
 }
 
 * { box-sizing: border-box; }
+
+/* MODIFIÉ : plus de height: 100% ni overflow-x: hidden sur le body,
+   pour que la fenêtre (window) défile et que "retour en haut" fonctionne */
 html, body {
-  height: 100%;
-  overflow-x: hidden;
   max-width: 100%;
 }
+
+html { overflow-x: hidden; }
 
 img { max-width: 100%; height: auto; display: block; }
 
 body {
   margin: 0;
+  min-height: 100%;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--white);
-  overflow-x: hidden;
+  overflow-x: clip;
   cursor: url("/cursor.png") 16 16, auto;
 }
 
@@ -174,27 +178,7 @@ button,
   object-position: center top;
 }
 
-.lk-eyesLayer {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.lk-eye {
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.lk-pupil {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  background: #000;
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-}
+/* SUPPRIMÉ : .lk-eyesLayer, .lk-eye, .lk-pupil (yeux abandonnés) */
 
 @media (max-width: 900px) {
   .lk-nav { padding: 0 18px; gap: 24px; }
@@ -1334,6 +1318,11 @@ button,
   background: #111;
 }
 
+/* AJOUTÉ : miniatures vidéo qui remplissent toute la carte */
+.projets__cardImg--cover {
+  object-fit: cover;
+}
+
 .projets__card:hover .projets__cardImg { opacity: 0.35; }
 
 .projets__cardOverlay {
@@ -1537,10 +1526,49 @@ button,
   border-radius: var(--radius);
 }
 
+/* AJOUTÉ : lecteur vidéo YouTube */
+.projet__video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #111;
+}
+
+.projet__video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 @media (max-width: 900px) {
   .projet__heroContent { padding: 0 24px 40px; }
   .projet__container { padding: 0 24px; }
   .projet__infos { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* =========================
+   ANIMATIONS (AJOUTÉ)
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* =========================
@@ -2041,4 +2069,65 @@ button,
     font-size: 12px !important;
     letter-spacing: 0.02em !important;
   }
+}
+/* =========================
+   HEADER : logo + menu mobile
+   (à coller TOUT EN BAS du fichier)
+========================= */
+.lk-navLogo img { margin-top: 8px; }
+
+@media (max-width: 600px) {
+  .lk-nav--open { z-index: 60; }
+
+  .lk-navLogo img {
+    height: 48px;
+    width: auto;
+    margin-top: 0;
+  }
+
+  /* Bouton hamburger → croix */
+  .lk-hamburger {
+    position: relative;
+    z-index: 61;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+  }
+
+  .lk-hamburger span {
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+
+  .lk-hamburger.isOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .lk-hamburger.isOpen span:nth-child(2) { opacity: 0; }
+  .lk-hamburger.isOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menu plein écran */
+  .lk-mobileMenu {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 70px 16px 0;
+    background: #fff;
+    border-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  .lk-mobileMenu.isOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+  }
+
+  .lk-mobileLink { font-size: 32px; }
 }

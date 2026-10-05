@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vidéos lourdes (hébergées sur YouTube)
+public/projects/**/*.mp4

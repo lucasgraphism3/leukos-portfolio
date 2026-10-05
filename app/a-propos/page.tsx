@@ -3,7 +3,9 @@
 import Footer from "@/components/footer";
 import ContactModal from "@/components/contactModal";
 import Image from "next/image";
-import Link from "next/link";
+
+const PORTFOLIO_PDF = "/portfolio/portfolio_lucas_guiquero_2026.pdf";
+const CV_PDF = "/assets/cv.pdf";
 
 export default function AboutPage() {
   const services = [
@@ -88,28 +90,18 @@ export default function AboutPage() {
                 </div>
 
                 <div className="about__btns">
-                  <Link
-                    className="about__btn"
-                    href="/assets/cv.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a className="about__btn" href={CV_PDF} download>
                     ↓ TÉLÉCHARGER CV
-                  </Link>
-                  <Link
-                    className="about__btn"
-                    href="/assets/portfolio.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    ↗ PORTFOLIO PDF
-                  </Link>
+                  </a>
+                  <a className="about__btn" href={PORTFOLIO_PDF} download>
+                    ↓ PORTFOLIO PDF
+                  </a>
                   <ContactModal label="✉ ME CONTACTER" />
                 </div>
 
                 <div className="about__bioCard">
                   <p className="about__bioText">
-                    Je suis Lucas Guiquéro allias Leukos, designer print et numérique, diplômé d'un baccalauréat en graphisme et d'un DEC au Cégep de Rivière-du-Loup. Passionné par le design numérique, l'identité visuelle et le design éditorial, je cherche à mettre mon énergie et mon sens des responsabilités au service de projets ambitieux. Disponible à partir du mois d'août, je suis prêt à m'impliquer activement et à contribuer de manière efficace à votre équipe.
+                    Je suis Lucas Guiquéro alias Leukos, designer print et numérique, diplômé d'un baccalauréat en graphisme et d'un DEC au Cégep de Rivière-du-Loup. Passionné par le design numérique, l'identité visuelle et le design éditorial, je cherche à mettre mon énergie et mon sens des responsabilités au service de projets ambitieux. Disponible à partir du mois d'août, je suis prêt à m'impliquer activement et à contribuer de manière efficace à votre équipe.
                   </p>
                 </div>
 

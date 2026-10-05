@@ -5,7 +5,20 @@ import ContactModal from "@/components/contactModal";
 import Link from "next/link";
 import { useState } from "react";
 
-const projets = [
+type Projet = {
+  id: string;
+  title: string;
+  type: string;
+  filter: string[];
+  slug: string;
+  logo: string;
+  video?: string; // identifiant YouTube (projets motion)
+};
+
+// Miniature YouTube générée automatiquement à partir de l'identifiant
+const miniature = (id: string) => `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+
+const projets: Projet[] = [
   { id: "flstudio", title: "REFONTE FL STUDIO", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "fl-studio", logo: "/projects/fl-studio/logo.webp" },
   { id: "gojin", title: "GOJIN TEA", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "gojin-tea", logo: "/projects/gojin-tea/logo.webp" },
   { id: "vnoma", title: "VNOMA", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "vnoma", logo: "/projects/vnoma/logo.webp" },
@@ -13,6 +26,11 @@ const projets = [
   { id: "maisonherbe", title: "MAISON D'HERBE", type: "Identité visuelle — Packaging", filter: ["identite", "packaging"], slug: "maison-herbe", logo: "/projects/maison-herbe/logo.webp" },
   { id: "lesfadas", title: "LES FADAS", type: "Identité visuelle", filter: ["identite"], slug: "les-fadas", logo: "/projects/les-fadas/logo.webp" },
   { id: "seigneurie", title: "SEIGNEURIE\nNICOLAS-RIOUX", type: "Identité visuelle — Design print", filter: ["identite", "print"], slug: "seigneurie", logo: "/projects/seigneurie/logo.webp" },
+
+  // --- MOTION DESIGN ---
+  { id: "motion1", title: "PROGRAMME\nGRAPHISME", type: "Motion design", filter: ["motion"], slug: "pub_graphikos", logo: miniature("iSkFaBe0hmA"), video: "iSkFaBe0hmA" },
+  { id: "motion2", title: "LA DETTE\nFRANÇAISE", type: "Motion design", filter: ["motion"], slug: "dette_france", logo: miniature("LeYguq2MQo8"), video: "LeYguq2MQo8" },
+  { id: "motion3", title: "GÉNÉRIQUE\nLE BON, LA BRUTE\nET LE TRUAND", type: "Motion design", filter: ["motion"], slug: "generique_western", logo: miniature("9gZ-Z16ErX8"), video: "9gZ-Z16ErX8" },
 ];
 
 const filtres = [
@@ -20,6 +38,7 @@ const filtres = [
   { id: "identite", label: "IDENTITÉ VISUELLE" },
   { id: "print", label: "DESIGN PRINT" },
   { id: "packaging", label: "PACKAGING" },
+  { id: "motion", label: "MOTION" },
 ];
 
 export default function ProjetsPage() {
@@ -56,13 +75,16 @@ export default function ProjetsPage() {
                 <Link key={p.id} href={`/projets/${p.slug}`} className="projets__card">
                   <img
                     src={p.logo}
-                    alt={p.title}
-                    className="projets__cardImg"
+                    alt={p.title.replace(/\n/g, " ")}
+                    className={`projets__cardImg${p.video ? " projets__cardImg--cover" : ""}`}
                   />
                   <div className="projets__cardOverlay">
                     <div className="projets__cardTitle">
-                      {p.title.split('\n').map((line, i) => (
-                        <span key={i}>{line}{i === 0 && p.title.includes('\n') && <br />}</span>
+                      {p.title.split("\n").map((line, i, arr) => (
+                        <span key={i}>
+                          {line}
+                          {i < arr.length - 1 && <br />}
+                        </span>
                       ))}
                     </div>
                     <div className="projets__cardType">{p.type}</div>
