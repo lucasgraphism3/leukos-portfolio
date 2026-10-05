@@ -1,4 +1,4 @@
-import Hero from "@/components/eyes-hero";
+import Hero from "@/components/hero";
 import Footer from "@/components/footer";
 import ProjectsMarquee from "@/components/ProjectsMarquee";
 import ContactModal from "@/components/contactModal";

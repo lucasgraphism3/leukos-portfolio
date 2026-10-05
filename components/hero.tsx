@@ -8,6 +8,7 @@ export default function Hero() {
         alt=""
         fill
         priority
+        sizes="100vw"
         className="lk-heroImg"
       />
     </section>

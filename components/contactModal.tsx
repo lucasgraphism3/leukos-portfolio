@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 export default function ContactModal({ label = "ME CONTACTER !" }: { label?: string }) {
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -19,15 +21,26 @@ export default function ContactModal({ label = "ME CONTACTER !" }: { label?: str
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const res = await fetch("https://formspree.io/f/xojyjbkb", {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
+    setSending(true);
+    setError("");
 
-    if (res.ok) {
-      setSent(true);
-      form.reset();
+    try {
+      const res = await fetch("https://formspree.io/f/xojyjbkb", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSent(true);
+        form.reset();
+      } else {
+        setError("Le message n'a pas pu être envoyé. Réessaie dans un instant.");
+      }
+    } catch {
+      setError("Problème de connexion. Vérifie ton réseau et réessaie.");
+    } finally {
+      setSending(false);
     }
   };
 
@@ -72,6 +85,15 @@ export default function ContactModal({ label = "ME CONTACTER !" }: { label?: str
             </div>
           ) : (
             <form className="form" onSubmit={handleSubmit}>
+              {/* Champ anti-spam : invisible pour les humains, rempli par les robots */}
+              <input
+                type="text"
+                name="_gotcha"
+                tabIndex={-1}
+                autoComplete="off"
+                style={{ display: "none" }}
+              />
+
               <label className="form__label">
                 Nom
                 <input className="form__input" type="text" name="name" required />
@@ -97,8 +119,14 @@ export default function ContactModal({ label = "ME CONTACTER !" }: { label?: str
                 />
               </label>
 
-              <button className="btn btn--ghost" type="submit">
-                Envoyer
+              {error && (
+                <p style={{ color: "#ff8a5c", fontSize: "14px", margin: 0 }} role="alert">
+                  {error}
+                </p>
+              )}
+
+              <button className="btn btn--ghost" type="submit" disabled={sending}>
+                {sending ? "Envoi..." : "Envoyer"}
               </button>
             </form>
           )}
