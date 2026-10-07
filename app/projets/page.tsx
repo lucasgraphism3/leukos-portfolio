@@ -13,6 +13,7 @@ type Projet = {
   slug: string;
   logo: string;
   video?: string; // identifiant YouTube (projets motion)
+  cover?: boolean; // image qui remplit toute la carte
 };
 
 // Miniature YouTube générée automatiquement à partir de l'identifiant
@@ -31,6 +32,9 @@ const projets: Projet[] = [
   { id: "motion1", title: "PROGRAMME\nGRAPHISME", type: "Motion design", filter: ["motion"], slug: "pub_graphikos", logo: miniature("iSkFaBe0hmA"), video: "iSkFaBe0hmA" },
   { id: "motion2", title: "LA DETTE\nFRANÇAISE", type: "Motion design", filter: ["motion"], slug: "dette_france", logo: miniature("LeYguq2MQo8"), video: "LeYguq2MQo8" },
   { id: "motion3", title: "GÉNÉRIQUE\nLE BON, LA BRUTE\nET LE TRUAND", type: "Motion design", filter: ["motion"], slug: "generique_western", logo: miniature("9gZ-Z16ErX8"), video: "9gZ-Z16ErX8" },
+
+  // --- PHOTO ---
+  { id: "photo", title: "PHOTOGRAPHIE", type: "Photo — Portrait", filter: ["photo"], slug: "photographie", logo: "/projects/photographie/photo-01.webp", cover: true },
 ];
 
 const filtres = [
@@ -39,6 +43,7 @@ const filtres = [
   { id: "print", label: "DESIGN PRINT" },
   { id: "packaging", label: "PACKAGING" },
   { id: "motion", label: "MOTION" },
+  { id: "photo", label: "PHOTO" },
 ];
 
 export default function ProjetsPage() {
@@ -76,7 +81,7 @@ export default function ProjetsPage() {
                   <img
                     src={p.logo}
                     alt={p.title.replace(/\n/g, " ")}
-                    className={`projets__cardImg${p.video ? " projets__cardImg--cover" : ""}`}
+                    className={`projets__cardImg${p.video || p.cover ? " projets__cardImg--cover" : ""}`}
                   />
                   <div className="projets__cardOverlay">
                     <div className="projets__cardTitle">

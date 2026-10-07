@@ -38,7 +38,7 @@ export default function ContactPage() {
                   N'hésitez pas à me laisser un message via le formulaire,
                   ou contactez-moi directement par email à{" "}
                   <a className="contact__email" href="mailto:lucas_guiquero@orange.fr">
-                    lucas_guiquero@orange.fr
+                    lucas.graphism3@gmail.com
                   </a>
                 </p>
                 <p className="contact__sub">
