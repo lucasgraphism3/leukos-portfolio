@@ -20,7 +20,7 @@ export default function PhotographiePage() {
             <Link className="projet__back" href="/projets">← RETOUR AUX PROJETS</Link>
             <h1 className="projet__title">PHOTOGRAPHIE</h1>
             <div className="projet__tags">
-              <span className="projet__tag">Photo</span>
+              <span className="projet__tag">Paysage</span>
               <span className="projet__tag">Portrait</span>
             </div>
           </div>

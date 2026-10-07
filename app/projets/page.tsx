@@ -34,7 +34,7 @@ const projets: Projet[] = [
   { id: "motion3", title: "GÉNÉRIQUE\nLE BON, LA BRUTE\nET LE TRUAND", type: "Motion design", filter: ["motion"], slug: "generique_western", logo: miniature("9gZ-Z16ErX8"), video: "9gZ-Z16ErX8" },
 
   // --- PHOTO ---
-  { id: "photo", title: "PHOTOGRAPHIE", type: "Photo — Portrait", filter: ["photo"], slug: "photographie", logo: "/projects/photographie/photo-01.webp", cover: true },
+  { id: "photo", title: "PHOTOGRAPHIE", type: "Paysage — Portrait", filter: ["photo"], slug: "photographie", logo: "/projects/photographie/photo-01.webp", cover: true },
 ];
 
 const filtres = [
